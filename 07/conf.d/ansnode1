@@ -1,0 +1,4 @@
+# custom for ansiblenode1
+Host ansiblenode1
+  User root
+  Port 2222

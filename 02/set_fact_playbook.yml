@@ -1,0 +1,26 @@
+---
+# YAML documents begin with the document separator ---
+
+# the minus in YAML this indicates a list item. The playbook contains a list
+# of plays, with each play being a dictionary
+- 
+  # Target: where our play will run and options it will run with
+  hosts: all
+
+  # Task: the list of tasks that will be executed within the play, this section
+  # can also be used for pre and post tasks
+  tasks:
+    - name: set a fact
+      set_fact: 
+        our_fact: Ansible Rocks!
+        ansible_distribution: "{{ ansible_os_family | upper }}"
+    - name: show custom fact
+      debug:
+        msg: "{{ our_fact }}"
+
+    - name: show ansible_distribution
+      debug:
+        msg: "{{ ansible_distribution }}"
+
+# three dots indicate the end of a YAML document
+...
